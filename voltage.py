@@ -12,10 +12,19 @@ class Reading:
     timestamp: float
     adc: int
 
+    _CONVERSION_SLOPE = 1.653
+    _CONVERSION_OFFSET = 0.456
+
+    @staticmethod
+    def _adc_to_voltage(adc):
+        """
+        """
+        return Reading._CONVERSION_SLOPE * adc + Reading._CONVERSION_OFFSET
+
     def voltage(self):
         """Convert ADC counts to a physical voltage (in V).
         """
-        return 1.653 * self.adc + 0.456
+        return self._adc_to_voltage(self.adc)
 
 
 
