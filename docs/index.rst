@@ -6,9 +6,14 @@
 metarep documentation
 =====================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+This is an unusual repo. From the pure code standpoint it provides a single Python module
+exposing exactly one function (calculating the square of a given number, by the way).
+
+.. literalinclude:: ../src/metarep/utils.py
+
+In the process, though, it touches upon many different points related to the
+development and maintainance of a simple Python package, and can be taken as a
+rough template and a starting point for new projects.
 
 
 .. toctree::

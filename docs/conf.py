@@ -3,12 +3,22 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+import os
+import sys
+
+sys.path.insert(0, os.path.abspath("../src"))
+
+# Import the version string
+from metarep._version import __version__ as release
+
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'metarep'
 copyright = '2025, Luca Baldini'
 author = 'Luca Baldini'
+version = ".".join(release.split(".")[:2])
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
