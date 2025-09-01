@@ -18,6 +18,7 @@ documentation for details.
    actions
    documentation
    install
+   license
    linting
    structure
    testing
