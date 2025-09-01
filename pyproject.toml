@@ -1,10 +1,11 @@
 [build-system]
-requires = ["hatchling>=1.24"]
+requires = ["hatchling>=1.24", "hatch-vcs>=0.3"]
 build-backend = "hatchling.build"
+
 
 [project]
 name = "metarep"
-version = "0.0.1"
+dynamic = ["version"]
 description = "A repository about making repositories"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -19,6 +20,15 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/lucabaldini/metarep"
 Issues = "https://github.com/lucabaldini/metarep/issues"
+
+
+# Tell Hatch to get the version from Git (hatch-vcs)
+[tool.hatch.version]
+source = "vcs"
+
+# Ask hatch-vcs to write a file with __version__ at build time
+[tool.hatch.build.hooks.vcs]
+version-file = "src/metarep/_version.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/metarep"]
