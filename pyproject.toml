@@ -13,7 +13,7 @@ authors = [
   { name = "Luca Baldini", email = "luca.baldini@unipi.it" }
 ]
 dependencies = [
-    numpy,
+    "numpy",
 ]
 
 [project.urls]
