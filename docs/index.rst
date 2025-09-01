@@ -15,10 +15,11 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
+   layout
+   install
+   versioning
    actions
    documentation
-   install
    license
    linting
-   structure
    testing

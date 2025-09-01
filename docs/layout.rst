@@ -1,4 +1,4 @@
-.. _structure:
+.. _layout:
 
 Structuring the project
 =======================
