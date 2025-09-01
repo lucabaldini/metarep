@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "metarep"
+version = "0.0.1"
+description = "A repository about making repositories"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+authors = [
+  { name = "Luca Baldini", email = "luca.baldini@unipi.it" }
+]
+dependencies = [
+    numpy,
+]
+
+[project.urls]
+Homepage = "https://github.com/lucabaldini/metarep"
+Issues = "https://github.com/lucabaldini/metarep/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/metarep"]
