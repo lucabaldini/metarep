@@ -1,0 +1,4 @@
+.. _documentation:
+
+Writing documentation
+=====================
