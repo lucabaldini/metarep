@@ -24,61 +24,58 @@ third-party Python libray you happen to have installed on your machine, e.g.
 Cool. I have ``numpy`` 2.3.2 installed.
 
 
-A dead-simple workflow
-----------------------
+A simple workflow
+-----------------
 
 As you might imagine, keeping track of the version of your software boils down to
-having a `version string` hard-coded somewhere in your codebase. This can actually get
-trickier than it might seem at a first glance, as the version number is needed in several
-different places for slightly different reasons (tags are managed by git in the first
-place, but presumably you need ``__version__`` to be defined in some Python file, while
-your ``pyproject.toml`` needs to be version-aware, and you might want to spell out which
-version the online documentation refers to---perhaps in the release notes).
+having a `version string` hard-coded somewhere in your codebase. This can actually
+get trickier than it might seem at a first glance, as the version number is needed
+in several different places for slightly different reasons (tags are managed by
+git in the first place, but presumably you need ``__version__`` to be defined in
+some Python module so that you can expose it; your ``pyproject.toml`` needs to
+be version-aware; and you might want to spell out which version the online
+documentation refers to---perhaps in the release notes).
 
 Now: whatever strategy you resort to, you need to make sure that the information you
-disseminate in the wild is self-consistent. As is often the case, this is a well-known
-problem that has been fixed for you. If you use `hatch <https://github.com/pypa/hatch>`_
-(with fellow ``hatchling`` build manager) to manage your Python project (if you have
-no idea, then there is no reason for you not to do it) `hatch-vcs <https://github.com/ofek/hatch-vcs>`_
-is a plugin designed to seamlessly use git to determine the project version. Really.
-You don't have to do anything, except for setting up your ``pyproject.toml`` file properly,
-e.g.
+disseminate in the wild is self-consistent. One dead-simple line of action might
+be:
+
+* keep the ``__version__`` attribute into a ``_version.py`` file;
+* have a (Python) script tagging your package `and` updating ``_version.py``
+  whenever you want to make a release;
+* have ``pyproject.toml`` read the version from ``_version.py``;
+* expose the ``__version__`` attribute in your package's ``__init__.py`` file.
+
+The  ``pyproject.toml`` magic is easily done via something along the lines of
 
 .. code-block::
 
     [build-system]
-    requires = ["hatchling>=1.24", "hatch-vcs>=0.3"]
+    requires = ["hatchling"]
     build-backend = "hatchling.build"
 
+    [project]
+    dynamic = ["version"]
+
     [tool.hatch.version]
-    source = "vcs"
+    path = "src/metarep/_version.py"
 
-    [tool.hatch.build.hooks.vcs]
-    version-file = "src/package-name/_version.py"
-
-In a nutshell: the first block specifies that you need ``hatchling`` and ``hatch-vsc``
-(don't worry: ``pip`` will install as needed when you pip-install your package) and you
-are using the former as your build system. This is all pretty standard these days.
-The second block implies that the version of your package is automatically fetched from
-git by the ``hatch-vsc`` plugin. At build time this will create a small Python module
-(you name it in the third block) with all the information that you need. The latter might
-look like
-
-.. literalinclude:: ../src/metarep/_version.py
-
-.. note::
-
-    As the comment at the top of the file clearly states, the ``hatch-vcs`` version
-    file is automatically generated---you should not edit it by hand, nor track it
-    in version control (i.e., it should be listed in your ``.gitignore`` file).
-
-That's it. In your top-level ``__init__.py`` file put
+And in the top-level ``__init__.py`` file of your package you might be tempted
+to simply write
 
 .. code-block:: Python
 
     from ._version import __version__
 
-and you have for free the ergonomics of the best Python packages on the market.
+Sure enough, when you install the package (e.g., via pip) you will get the same
+ergonomics as any other third-party library. One slight problem with this simplistic
+approach is that if you are actively developing a project in a working copy of a
+git repo, the version string will not generally capture local modifications---you
+will keep getting the same version until you make a new tag. You might care or not
+about this, but this is something that can be easily fixed with a slightly
+more complicated ``__init__.py`` file, e.g.,
+
+.. literalinclude:: ../src/metarep/__init__.py
 
 
 Semantic versioning
