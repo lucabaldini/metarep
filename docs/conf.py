@@ -9,7 +9,7 @@ import sys
 sys.path.insert(0, os.path.abspath("../src"))
 
 # Import the version string
-from metarep._version import __version__ as release
+from metarep._version import __version__
 
 
 # -- Project information -----------------------------------------------------
@@ -18,7 +18,7 @@ from metarep._version import __version__ as release
 project = 'metarep'
 copyright = '2025, Luca Baldini'
 author = 'Luca Baldini'
-version = ".".join(release.split(".")[:2])
+version = __version__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

@@ -31,6 +31,11 @@ This is it. All the files get copied into a place where they can be imported fro
 and it is the ``pyproject.toml`` file that makes that possible.
 
 
+.. note::
+
+    Explain pip.
+
+
 Editable installation
 ---------------------
 

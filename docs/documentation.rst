@@ -2,3 +2,7 @@
 
 Writing documentation
 =====================
+
+
+Sphinx themes
+-------------

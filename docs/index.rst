@@ -21,10 +21,11 @@ rough template and a starting point for new projects.
    :caption: Contents:
 
    layout
+   license
    install
    versioning
-   actions
    documentation
-   license
    linting
    testing
+   actions
+   badges
