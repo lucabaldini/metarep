@@ -10,10 +10,12 @@ description = "A repository about making repositories"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.7"
-authors = [{ name = "Luca Baldini", email = "luca.baldini@unipi.it" }]
+authors = [
+  { name = "Luca Baldini", email = "luca.baldini@unipi.it" }
+  ]
 dependencies = [
-    "numpy",
-]
+  "numpy",
+  ]
 
 [project.urls]
 Homepage = "https://github.com/lucabaldini/metarep"
