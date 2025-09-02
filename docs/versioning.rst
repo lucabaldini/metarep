@@ -76,7 +76,3 @@ about this, but this is something that can be easily fixed with a slightly
 more complicated ``__init__.py`` file, e.g.,
 
 .. literalinclude:: ../src/metarep/__init__.py
-
-
-Semantic versioning
--------------------
