@@ -42,10 +42,10 @@ dev = [
     "pytest",
     "ruff",
     "pylint",
-]
+  ]
 docs = [
     "sphinx",
-]
+  ]
 
 # A few more useful fields...
 [project.urls]
@@ -79,12 +79,12 @@ select = [
   "C4",  # flake8-comprehensions
   "NPY", # NumPy-specific best practices
   "PERF" # performance gotchas
-]
+  ]
 # And, of course, sometimes you want to disable rules that are enabled
 # by default.
 ignore = [
   "C408" # I sometimes like dict() calls better than literal dicts
-]
+  ]
 
 # On the other hand, pylint is fairly noisy by default, and you might
 # want to disable some rules.
@@ -97,7 +97,7 @@ disable = [
   "too-many-instance-attributes",
   "too-many-locals",
   "use-dict-literal",
-]
+  ]
 
 [tool.pylint.'BASIC']
 good-names = ["i", "j", "k", "x", "y", "z"]
