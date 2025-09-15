@@ -28,4 +28,5 @@ rough template and a starting point for new projects.
    linting
    testing
    actions
+   tasks
    badges
