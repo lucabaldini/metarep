@@ -21,5 +21,8 @@ import numpy as np
 
 def square(x: Union[Number, np.ndarray]) -> Union[Number, np.ndarray]:
     """Return the square of a single number or a numpy array.
+
+    Note by virtue of the ``2.`` (vs. ``2``) at the exponent, the output value
+    is always a float, or an array of floats.
     """
     return x**2.

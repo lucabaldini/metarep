@@ -24,6 +24,10 @@ from metarep.utils import square
 
 def test_numbers():
     """Test the square function with numbers.
+
+    Note in principle we have to test integers and floating points separately.
+    As documented in the underlying function, the output is always expected to
+    be a floating point.
     """
     assert square(3) == 9.
     assert square(3.) == 9.
@@ -31,9 +35,12 @@ def test_numbers():
 
 def test_array():
     """Test the square function with numpy arrays.
+
+    This is similar, in spirit, to the previous test. Note the use of the
+    np.allclose() method.
     """
-    val = np.full(100, 3.)
-    assert np.allclose(square(val), np.full(100, 9.))
+    assert np.allclose(square(np.full(100, 3)), np.full(100, 9.))
+    assert np.allclose(square(np.full(100, 3.)), np.full(100, 9.))
 
 
 def test_string():
@@ -41,4 +48,4 @@ def test_string():
     """
     with pytest.raises(TypeError) as exception:
         square('hello')
-    print(exception.info)
+    print(f'Caught exception {exception}')

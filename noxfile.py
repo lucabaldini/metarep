@@ -51,3 +51,11 @@ def pylint(session: nox.Session) -> None:
     session.install('pylint')
     session.install('.[dev]')
     session.run('pylint', *SOURCE_DIRS, *session.posargs)
+
+
+@nox.session
+def test(session: nox.Session) -> None:
+    """Run the unit tests.
+    """
+    session.install('.[dev]')
+    session.run('pytest', *session.posargs)
