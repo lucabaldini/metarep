@@ -21,6 +21,17 @@ dependencies = [
 Homepage = "https://github.com/lucabaldini/metarep"
 Issues = "https://github.com/lucabaldini/metarep/issues"
 
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+    "pylint",
+]
+docs = [
+    "sphinx",
+]
+
+
 [tool.hatch.version]
 path = "src/metarep/_version.py"
 
@@ -29,10 +40,9 @@ reuse_existing_virtualenvs = true
 python = ["3.9", "3.10", "3.11", "3.12"]
 
 [tool.ruff]
-target-version = "py37"
+target-version = "py37" # Target the oldest Python version supported.
 line-length = 100
-src = ["."]
-namespace-packages = ["aptapy"]
+src = ["src"] # This allows ruff to identify first-party modules.
 
 [tool.ruff.lint]
 select = [
@@ -46,17 +56,19 @@ select = [
   "NPY", # NumPy-specific best practices
   "PERF" # performance gotchas
 ]
-ignore = []
+ignore = [
+  "C408" # I sometimes like dict() calls better than literal dicts
+]
 
 [tool.pylint.'MESSAGES CONTROL']
-# Disable noisy or redundant checks
 disable = [
-  "missing-docstring",       # too strict at early stages
-  "too-few-public-methods",  # noisy for small classes (dataclasses, models)
-  "too-many-arguments",      # sometimes expected in scientific code
+  "missing-docstring", # too strict at early stages
+  "too-few-public-methods", # noisy for small classes (dataclasses, models)
+  "too-many-arguments", # sometimes expected in scientific code
   "too-many-positional-arguments",
   "too-many-instance-attributes",
   "too-many-locals",
+  "use-dict-literal", # see the comment about ruff C408
 ]
 
 [tool.pylint.'BASIC']

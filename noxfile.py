@@ -13,10 +13,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from requests import session
 import nox
 
 from metarep import METAREP_DOCS
+
+# Folders containing source code that potentially needs linting.
+SOURCE_DIRS = ('src', 'tests')
 
 
 @nox.session(venv_backend='none')
@@ -39,12 +41,13 @@ def ruff(session: nox.Session) -> None:
     """Run ruff.
     """
     session.install('ruff')
-    session.run('ruff', 'check', 'src', 'tests', *session.posargs)
+    session.run('ruff', 'check', *SOURCE_DIRS, *session.posargs)
 
 
-# @nox.session
-# def ruff(session: nox.Session) -> None:
-#     """Run pylint.
-#     """
-#     session.install('pylint')
-#     session.run('ruff', 'check', 'src', 'tests', *session.posargs)
+@nox.session
+def pylint(session: nox.Session) -> None:
+    """Run pylint.
+    """
+    session.install('pylint')
+    session.install('.[dev]')
+    session.run('pylint', *SOURCE_DIRS, *session.posargs)

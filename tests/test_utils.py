@@ -16,21 +16,29 @@
 """Unit tests for the utils module.
 """
 
+import numpy as np
+import pytest
+
 from metarep.utils import square
 
 
 def test_numbers():
+    """Test the square function with numbers.
     """
-    """
-    assert square(3) == 9
+    assert square(3) == 9.
     assert square(3.) == 9.
 
 
 def test_array():
+    """Test the square function with numpy arrays.
     """
-    """
+    val = np.full(100, 3.)
+    assert np.allclose(square(val), np.full(100, 9.))
 
 
 def test_string():
+    """Calling square() with a string as the argument should raise TypeError.
     """
-    """
+    with pytest.raises(TypeError) as exception:
+        square('hello')
+    print(exception.info)

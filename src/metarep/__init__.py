@@ -18,7 +18,6 @@ import subprocess
 
 from ._version import __version__ as __base_version__
 
-
 METAREP_SRC = pathlib.Path(__file__).parent
 METAREP_ROOT = METAREP_SRC.parent.parent
 METAREP_DOCS = METAREP_ROOT / 'docs'
