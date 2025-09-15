@@ -23,3 +23,44 @@ Issues = "https://github.com/lucabaldini/metarep/issues"
 
 [tool.hatch.version]
 path = "src/metarep/_version.py"
+
+[tool.nox]
+reuse_existing_virtualenvs = true
+python = ["3.9", "3.10", "3.11", "3.12"]
+
+[tool.ruff]
+target-version = "py37"
+line-length = 100
+src = ["."]
+namespace-packages = ["aptapy"]
+
+[tool.ruff.lint]
+select = [
+  "E",   # pycodestyle errors
+  "F",   # pyflakes
+  "I",   # isort (imports)
+  "B",   # flake8-bugbear
+  "UP",  # pyupgrade (kept safe for py37)
+  "SIM", # flake8-simplify
+  "C4",  # flake8-comprehensions
+  "NPY", # NumPy-specific best practices
+  "PERF" # performance gotchas
+]
+ignore = []
+
+[tool.pylint.'MESSAGES CONTROL']
+# Disable noisy or redundant checks
+disable = [
+  "missing-docstring",       # too strict at early stages
+  "too-few-public-methods",  # noisy for small classes (dataclasses, models)
+  "too-many-arguments",      # sometimes expected in scientific code
+  "too-many-positional-arguments",
+  "too-many-instance-attributes",
+  "too-many-locals",
+]
+
+[tool.pylint.'BASIC']
+good-names = ["i", "j", "k", "x", "y", "z"]
+
+[tool.pylint.'FORMAT']
+max-line-length = 100
