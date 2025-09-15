@@ -22,6 +22,8 @@ from metarep import METAREP_ROOT, METAREP_SRC, METAREP_TESTS, METAREP_DOCS
 # Folders containing source code that potentially needs linting.
 SOURCE_DIRS = ('src', 'tests')
 
+# Reuse existing virtualenvs by default.
+nox.options.reuse_existing_virtualenvs = True
 
 @nox.session(venv_backend='none')
 def cleanup(session: nox.Session) -> None:

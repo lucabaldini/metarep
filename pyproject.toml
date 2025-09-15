@@ -1,8 +1,25 @@
+# See the Python packaging user guide for the ultimate reference on
+# pyproject.toml, and more specifically
+# https://packaging.python.org/en/latest/specifications/pyproject-toml/
+
+# This section is mandatory in pyproject.toml for any buildable project.
+# It specifies what tool(s) are needed to build your package and what
+# backend to call for the actual build. hatchling
+# https://github.com/pypa/hatch/tree/master/backend
+# is a pretty popular choice.
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-
+# This is probably the most important section, and the fields should
+# be pretty much self-explaining. A couple of things:
+# - declaring "version" as a dynamic field is handy because minimized
+#   the places where the version string is hard-coded---we shall tell
+#   hatch a few lines below which file we want to read to the version
+#   string from;
+# - you should list in this section all the dependencies your package
+#   relies on, so they get automatically installed (if necessary) when
+#   the package is pip-installed.
 [project]
 name = "metarep"
 dynamic = ["version"]
@@ -17,10 +34,9 @@ dependencies = [
   "numpy",
   ]
 
-[project.urls]
-Homepage = "https://github.com/lucabaldini/metarep"
-Issues = "https://github.com/lucabaldini/metarep/issues"
-
+# Optional dependencies are listed here, grouped into logical sections.
+# By default (e.g. upon "pip install .") optional dependencies are not
+# installed, but they are when you do, e.g., "pip install .[dev]"
 [project.optional-dependencies]
 dev = [
     "pytest",
@@ -31,19 +47,27 @@ docs = [
     "sphinx",
 ]
 
+# A few more useful fields...
+[project.urls]
+Homepage = "https://github.com/lucabaldini/metarep"
+Issues = "https://github.com/lucabaldini/metarep/issues"
 
+# Specify the python file that hatchling should read the version string from.
 [tool.hatch.version]
 path = "src/metarep/_version.py"
 
-[tool.nox]
-reuse_existing_virtualenvs = true
-python = ["3.9", "3.10", "3.11", "3.12"]
-
+# ruff configuration, see
+# https://docs.astral.sh/ruff/configuration/
+# for the ultimate reference.
+# Note we target the oldest Python version that we support, which helps
+# in avoiding features that are only available in newer versions.
 [tool.ruff]
-target-version = "py37" # Target the oldest Python version supported.
+target-version = "py37"
 line-length = 100
-src = ["src"] # This allows ruff to identify first-party modules.
+src = ["src"]
 
+# By default the ruff configuration is fairly minimal, and you might
+# want to specifically enable specific useful rules.
 [tool.ruff.lint]
 select = [
   "E",   # pycodestyle errors
@@ -56,19 +80,23 @@ select = [
   "NPY", # NumPy-specific best practices
   "PERF" # performance gotchas
 ]
+# And, of course, sometimes you want to disable rules that are enabled
+# by default.
 ignore = [
   "C408" # I sometimes like dict() calls better than literal dicts
 ]
 
+# On the other hand, pylint is fairly noisy by default, and you might
+# want to disable some rules.
 [tool.pylint.'MESSAGES CONTROL']
 disable = [
-  "missing-docstring", # too strict at early stages
-  "too-few-public-methods", # noisy for small classes (dataclasses, models)
-  "too-many-arguments", # sometimes expected in scientific code
+  "missing-docstring",
+  "too-few-public-methods",
+  "too-many-arguments",
   "too-many-positional-arguments",
   "too-many-instance-attributes",
   "too-many-locals",
-  "use-dict-literal", # see the comment about ruff C408
+  "use-dict-literal",
 ]
 
 [tool.pylint.'BASIC']
