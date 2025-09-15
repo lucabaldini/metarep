@@ -13,12 +13,29 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import shutil
+
 import nox
 
-from metarep import METAREP_DOCS
+from metarep import METAREP_ROOT, METAREP_SRC, METAREP_TESTS, METAREP_DOCS
 
 # Folders containing source code that potentially needs linting.
 SOURCE_DIRS = ('src', 'tests')
+
+
+@nox.session(venv_backend='none')
+def cleanup(session: nox.Session) -> None:
+    """Cleanup temporary files.
+    """
+    # Remove all the __pycache__ folders.
+    for folder_path in (METAREP_ROOT, METAREP_SRC, METAREP_TESTS):
+        _path = folder_path / '__pycache__'
+        if _path.exists():
+            shutil.rmtree(_path)
+    # Cleanup the docs.
+    _path = METAREP_DOCS / '_build'
+    if _path.exists():
+            shutil.rmtree(_path)
 
 
 @nox.session(venv_backend='none')
