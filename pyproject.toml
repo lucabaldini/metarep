@@ -65,6 +65,7 @@ path = "src/metarep/_version.py"
 target-version = "py37"
 line-length = 100
 src = ["src"]
+exclude = ["docs"]
 
 # By default the ruff configuration is fairly minimal, and you might
 # want to specifically enable specific useful rules.

@@ -17,7 +17,7 @@ import shutil
 
 import nox
 
-from metarep import METAREP_ROOT, METAREP_SRC, METAREP_TESTS, METAREP_DOCS
+from metarep import METAREP_DOCS, METAREP_ROOT, METAREP_SRC, METAREP_TESTS
 
 # Folders containing source code that potentially needs linting.
 SOURCE_DIRS = ("src", "tests", "tools")
@@ -60,7 +60,7 @@ def ruff(session: nox.Session) -> None:
     """Run ruff.
     """
     session.install("ruff")
-    session.run("ruff", "check", *SOURCE_DIRS, *session.posargs)
+    session.run("ruff", "check", *session.posargs)
 
 
 @nox.session
