@@ -20,27 +20,27 @@ import nox
 from metarep import METAREP_ROOT, METAREP_SRC, METAREP_TESTS, METAREP_DOCS
 
 # Folders containing source code that potentially needs linting.
-SOURCE_DIRS = ('src', 'tests')
+SOURCE_DIRS = ("src", "tests")
 
 # Reuse existing virtualenvs by default.
 nox.options.reuse_existing_virtualenvs = True
 
-@nox.session(venv_backend='none')
+@nox.session(venv_backend="none")
 def cleanup(session: nox.Session) -> None:
     """Cleanup temporary files.
     """
     # Remove all the __pycache__ folders.
     for folder_path in (METAREP_ROOT, METAREP_SRC, METAREP_TESTS):
-        _path = folder_path / '__pycache__'
+        _path = folder_path / "__pycache__"
         if _path.exists():
             shutil.rmtree(_path)
     # Cleanup the docs.
-    _path = METAREP_DOCS / '_build'
+    _path = METAREP_DOCS / "_build"
     if _path.exists():
             shutil.rmtree(_path)
 
 
-@nox.session(venv_backend='none')
+@nox.session(venv_backend="none")
 def docs(session: nox.Session) -> None:
     """Build the HTML docs.
 
@@ -51,30 +51,30 @@ def docs(session: nox.Session) -> None:
     decorator called with arguments.)
     """
     source_dir = METAREP_DOCS
-    output_dir = METAREP_DOCS / '_build' / 'html'
-    session.run('sphinx-build', '-b', 'html', source_dir, output_dir, *session.posargs)
+    output_dir = METAREP_DOCS / "_build" / "html"
+    session.run("sphinx-build", "-b", "html", source_dir, output_dir, *session.posargs)
 
 
 @nox.session
 def ruff(session: nox.Session) -> None:
     """Run ruff.
     """
-    session.install('ruff')
-    session.run('ruff', 'check', *SOURCE_DIRS, *session.posargs)
+    session.install("ruff")
+    session.run("ruff", "check", *SOURCE_DIRS, *session.posargs)
 
 
 @nox.session
 def pylint(session: nox.Session) -> None:
     """Run pylint.
     """
-    session.install('pylint')
-    session.install('.[dev]')
-    session.run('pylint', *SOURCE_DIRS, *session.posargs)
+    session.install("pylint")
+    session.install(".[dev]")
+    session.run("pylint", *SOURCE_DIRS, *session.posargs)
 
 
 @nox.session
 def test(session: nox.Session) -> None:
     """Run the unit tests.
     """
-    session.install('.[dev]')
-    session.run('pytest', *session.posargs)
+    session.install(".[dev]")
+    session.run("pytest", *session.posargs)
