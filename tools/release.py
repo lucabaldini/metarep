@@ -15,7 +15,9 @@
 
 import argparse
 import ast
+import datetime
 from enum import Enum
+import subprocess
 
 from packaging.version import parse, Version
 
@@ -36,7 +38,7 @@ class BumpMode(str, Enum):
     MICRO = "micro"
 
 
-def read_version() -> Version:
+def read_version_file() -> Version:
     """Read the version string from the version file.
 
     Note the version file is assumed to contain exactly one line of the form
@@ -72,7 +74,7 @@ def bump_version(version: Version, mode: BumpMode) -> Version:
     return Version(version_string)
 
 
-def write_version(version: Version) -> None:
+def write_version_file(version: Version) -> None:
     """Write a given version string to the version file.
     """
     print(f"Writing version {version} to {_VERSION_FILE_PATH}...")
@@ -80,25 +82,45 @@ def write_version(version: Version) -> None:
         output_file.write(f'__version__ = "{version}"\n')
 
 
-def update_release_notes(version: Version, num_header_lines: int = 6) -> None:
+def update_release_notes(version: Version, num_header_lines: int = 5) -> None:
     """Update the release notes file.
     """
     print(f"Updating release notes {_RELEASE_NOTES_PATH}...")
     with open(_RELEASE_NOTES_PATH, encoding=_ENCODING) as input_file:
         lines = input_file.readlines()
-    text = f'{version}\n' + '=' * len(str(version)) + '\n\n'
+    text = f'Version {version} ({datetime.datetime.now().date()})'
+    underline = '~' * len(text)
+    text = f'\n{text}\n{underline}\n\n'
     lines.insert(num_header_lines, text)
     with open(_RELEASE_NOTES_PATH, "w", encoding=_ENCODING) as output_file:
         output_file.writelines(lines)
 
 
+def _cmd(*args) -> subprocess.CompletedProcess:
+    """Run a command in a subprocess.
+    """
+    print(f"Executing command \"{' '.join(args)}\"...")
+    result = subprocess.run(args, capture_output=True, text=True, check=True)
+    print(result.stdout)
+    return result
+
+
 def release(mode: BumpMode) -> None:
     """Release a new version of the package.
     """
-    old_version = read_version()
-    new_version = bump_version(old_version, mode)
-    write_version(new_version)
-    update_release_notes(new_version)
+    # Bump the version.
+    version = bump_version(read_version_file(), mode)
+    # Update the necessary files.
+    write_version_file(version)
+    update_release_notes(version)
+    # Commit and push the modified files.
+    msg = f"Prepare for tag {version}."
+    _cmd("git", "commit", "-a", "-m", msg)
+    _cmd("git", "push")
+    msg = f"Tagging version {version}..."
+    _cmd("git", "tag", "-a", version, "-m", f'"{msg}"')
+    _cmd("git", "push", "--tags")
+    _cmd("git", "status")
 
 
 if __name__ == "__main__":
