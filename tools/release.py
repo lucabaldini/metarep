@@ -118,7 +118,7 @@ def release(mode: BumpMode) -> None:
     _cmd("git", "commit", "-a", "-m", msg)
     _cmd("git", "push")
     msg = f"Tagging version {version}..."
-    _cmd("git", "tag", "-a", version, "-m", f'"{msg}"')
+    _cmd("git", "tag", "-a", str(version), "-m", f'"{msg}"')
     _cmd("git", "push", "--tags")
     _cmd("git", "status")
 
