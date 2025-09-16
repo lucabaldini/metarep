@@ -80,12 +80,25 @@ def write_version(version: Version) -> None:
         output_file.write(f'__version__ = "{version}"\n')
 
 
+def update_release_notes(version: Version, num_header_lines: int = 6) -> None:
+    """Update the release notes file.
+    """
+    print(f"Updating release notes {_RELEASE_NOTES_PATH}...")
+    with open(_RELEASE_NOTES_PATH, encoding=_ENCODING) as input_file:
+        lines = input_file.readlines()
+    text = f'{version}\n' + '=' * len(str(version)) + '\n\n'
+    lines.insert(num_header_lines, text)
+    with open(_RELEASE_NOTES_PATH, "w", encoding=_ENCODING) as output_file:
+        output_file.writelines(lines)
+
+
 def release(mode: BumpMode) -> None:
     """Release a new version of the package.
     """
     old_version = read_version()
     new_version = bump_version(old_version, mode)
     write_version(new_version)
+    update_release_notes(new_version)
 
 
 if __name__ == "__main__":
