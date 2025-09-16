@@ -16,10 +16,10 @@
 import argparse
 import ast
 import datetime
-from enum import Enum
 import subprocess
+from enum import Enum
 
-from packaging.version import parse, Version
+from packaging.version import Version, parse
 
 from metarep import METAREP_DOCS, METAREP_SRC
 
