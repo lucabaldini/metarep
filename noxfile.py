@@ -20,7 +20,7 @@ import nox
 from metarep import METAREP_ROOT, METAREP_SRC, METAREP_TESTS, METAREP_DOCS
 
 # Folders containing source code that potentially needs linting.
-SOURCE_DIRS = ("src", "tests")
+SOURCE_DIRS = ("src", "tests", "tools")
 
 # Reuse existing virtualenvs by default.
 nox.options.reuse_existing_virtualenvs = True
