@@ -34,6 +34,7 @@ Now, this is a lot of files---so may that the thing might look daunting at a fir
 glance---but in fact it's not too bad. In this section we shall quickly go through
 the organization of the files and clarify the rationale beyond this standard organizations.
 
+
 Source code
 -----------
 
@@ -43,7 +44,8 @@ for this repo.) At the very minimum the source code includes
 
 * a ``__init__.py``, a special Python file that is used to mark a directory as a
   Python package (in the simplest case the the file can be empty, but it can serve
-  several useful purposes, see `here <https://docs.python.org/3/tutorial/modules.html#packages>`_
+  several useful purposes, see
+  `here <https://docs.python.org/3/tutorial/modules.html#packages>`__
   for more details);
 * all the Python modules that your package ships---this should be self-explaining and,
   quite possibly, is the only thing you ever cared about before reading this;
@@ -56,7 +58,7 @@ in the repository structure, or further embedded in a ``src`` folder, which is s
 referred as `flat vs. src layout`. To make a long story short, the Python package authority
 recommends the latter (src layout) and this is what we use here. You find (a lot of)
 additional information
-`here <https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/>`_
+`here <https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/>`__.
 
 .. seealso::
    :ref:`versioning`
@@ -65,6 +67,11 @@ additional information
 Documentation
 -------------
 
+All the stuff related to documentation lives in the ``docs`` folder. We shall look in
+details into how you go about documenting a Python package in the :ref:`documentation`
+section, but we anticipate the ``docs`` folder will contain at the very least a
+|Sphinx| configuration file called ``conf.py``, a master markup file ``index.rst`` and,
+very possibly, more .rst files.
 
 .. seealso::
    :ref:`documentation`
@@ -73,6 +80,9 @@ Documentation
 Unit tests
 ----------
 
+Not surpsisingly, the ``tests`` folder contains all the unit tests. We shell cover this in
+the section about :ref:`testing`, but we anticipate that, ideally, you will have one test
+file for each |Python| module in the package.
 
 .. seealso::
    :ref:`testing`

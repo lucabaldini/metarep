@@ -3,9 +3,8 @@
 Writing documentation
 =====================
 
-Nowadays this is a no brainer: all Python projects out there use
-`Sphinx <https://www.sphinx-doc.org/en/master/>`_ to generate the documentation,
-Python itself uses Sphinx, and so should you!
+Nowadays this is a no brainer: all Python projects out there use |Sphinx| to generate
+the documentation, Python itself uses Sphinx, and so should you!
 
 When you think about documenting a software project, there are actually to equally
 important parts to it, namely:

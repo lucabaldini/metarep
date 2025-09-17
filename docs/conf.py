@@ -19,6 +19,12 @@ copyright = '2025, Luca Baldini'
 author = 'Luca Baldini'
 version = __version__
 
+# This will be included at the beginning of each .rst file.
+rst_prolog = f"""
+.. |Python| replace:: `Python <https://www.python.org/>`__
+.. |Sphinx| replace:: `Sphinx <https://www.sphinx-doc.org/en/master/>`__
+"""
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
@@ -47,5 +53,6 @@ html_permalinks_icon = '<span>#</span>'
 pygments_style = 'default'
 pygments_dark_style = 'default'
 html_theme_options = {
-    }
+    'awesome_external_links': True,
+}
 html_static_path = ['_static']

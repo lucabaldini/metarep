@@ -6,11 +6,12 @@
 metarep
 =======
 
-This is an unusual repo. From the pure code standpoint it provides a single Python module
-exposing exactly one function (calculating the square of a given number, by the way).
+This is an unusual repo. From the pure code standpoint it provides a single |Python| module
+exposing exactly one function. (The latter calculates the square of a given number or
+numpy array, in case you do care.)
 
-In the process, though, it touches upon many different points related to the
-development and maintainance of a simple Python package, and can be taken as a
+In the process, though, we touch upon many different points related to the development and
+maintainance of a simple Python package, and the underlying repository can be taken as a
 rough template and a starting point for new projects.
 
 
@@ -19,7 +20,6 @@ rough template and a starting point for new projects.
    :caption: Contents:
 
    layout
-   license
    install
    api
    versioning
@@ -28,5 +28,6 @@ rough template and a starting point for new projects.
    testing
    actions
    tasks
+   license
    badges
    release_notes
