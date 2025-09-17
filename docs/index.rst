@@ -23,6 +23,7 @@ rough template and a starting point for new projects.
    layout
    license
    install
+   api
    versioning
    documentation
    linting

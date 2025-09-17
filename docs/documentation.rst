@@ -26,18 +26,34 @@ a good example of the first, while the documentation of the
 function belongs to the second category.
 
 Sphinx handles both things equally well---the first is expressed in the form of
-a series of ``.rst`` markup files, while the second can be easily extracted from
-the docstrings in the Python code. What you need is a Python configuration
-file such as the one generating this page
+a series of ``.rst`` markup files, while the second is extracted from the docstrings
+in the Python code. What you need is a Python configuration file such as the one
+generating this page
 
 .. literalinclude:: conf.py
    :language: python
+
+and at least a master markup file ``index.rst``
+
+.. literalinclude:: index.rst
 
 .. note::
 
    Wow, did you see that? We just included an entire file from the repository
    `verbatim` into the documentation. This is what the
    `literalinclude <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-literalinclude>`_ directive is for.
+
+
+The most straightforward way to begin a new project is to use the quickstart
+facility provided by Sphinx itself, which will generate a basic set of files
+
+.. code-block:: shell
+
+    cd docs
+    sphinx-quickstart
+
+and then proceed from there.
+
 
 Sphinx themes
 -------------
