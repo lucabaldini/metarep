@@ -44,4 +44,9 @@ autodoc_default_options = {
 
 html_theme = 'sphinxawesome_theme'
 html_permalinks_icon = '<span>#</span>'
+pygments_style = 'default'
+pygments_dark_style = 'default'
+html_theme_options = {
+    'show_version': True,
+}
 html_static_path = ['_static']

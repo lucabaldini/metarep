@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-metarep documentation
-=====================
+metarep
+=======
 
 This is an unusual repo. From the pure code standpoint it provides a single Python module
 exposing exactly one function (calculating the square of a given number, by the way).
