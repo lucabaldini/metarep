@@ -34,7 +34,66 @@ get the idea.)
 pytest
 ------
 
-The |Python| standard library provides a ``unittest`` module that nobody uses
-anymore, these days.
+The |Python| standard library provides a
+`unittest <https://docs.python.org/3/library/unittest.html>`_ module that, frankly
+speaking nobody uses anymore, these days. (The documentation page, though, is still
+a useful source of information). Since it looks all the hipe is currently on
+`pytest <https://docs.pytest.org/en/stable/>`_, this is what we are using as well.
+
+The basic idea is quite simple: for each module in ``src/pkgname`` you create a
+corresponding Python file in ``tests`` that implements all the unit tests. In the
+``pytest`` language, this is achieved with a series of function whose name
+starts with ``test`` (and in which we define the logic of whether the test is
+passed or not by using the ``assert`` Python keyword)---something along the lines of:
 
 .. literalinclude:: ../tests/test_utils.py
+
+With this in place, all you have to do is to run
+
+.. code-block::
+
+  pytest
+
+and ``pytest`` will do all the magic: loop over the Python files in the ``test`` folder,
+run all the test function, and collect the output. Cool.
+
+Since we are at it, note how testing is largely less obvious of what it might seem
+at a first glance. How would you go about testing a function that calculates the square
+of a number? Well, for one thing you'd line the square of 3 to be 9. And then you start
+wondering: does it make any difference if I pass ``float`` 3. or ``int`` 3, and should it?
+And again, since we physicists cruch numbers as our day job and like using |numpy|,
+shall we make sure that the function works on arrays? And, by the way, what about
+all the discussions about the floating-point arithmetics being inherently non exact and
+the push to refrain from comparing floating-point numbers? Oh, and how about strings?
+
+You got the point. We wrote a one-line function and opened up the floor for
+infinite testing...
+
+
+Continuous integration
+----------------------
+
+Now that we got all the unit tests lined up for our tiny module and an awesome
+framework to run them, there is one more thing. You are welcome to run your unit tests
+locally whenever you change your code. Totally. (Actually, you should definitely do so).
+But that is not enough---the quality of your code should not be hostage of the fact
+that you remember (or not) to run the test manually. All the unit tests should be
+run automatically under certain circumstances (e.g., when you modify a branch with an
+open pull request, or when you push something on the main) and you should have somebody
+knocking at your door (metaphorically) if something goes wrong. This is typically
+referred to as `continuous integration`.
+
+It's a good thing that we encounter the same issue of automatically triggering things
+when discussing how one goes about publishing the documentation, and the answer is the
+same: a GitHub action. Let's take a look at what we are doing for our small package:
+
+.. literalinclude:: ../.github/workflows/ci.yml
+   :language: yaml
+
+At this point most of the stuff shoulf be self-explaining. Oh, and note we are running
+Ruff before we run pytest. If the thing does not pass the static analysis tests we don't
+even bother running the code.
+
+.. seealso::
+
+  :ref:`actions`.
