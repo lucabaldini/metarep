@@ -31,6 +31,8 @@ def test_numbers():
     """
     assert square(3) == 9.
     assert square(3.) == 9.
+    assert square(-3) == 9.
+    assert square(-3.) == 9.
 
 
 def test_array():

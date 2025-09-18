@@ -1,4 +1,4 @@
 .. _actions:
 
-github actions
+GitHub actions
 ==============
