@@ -3,6 +3,10 @@
 Release notes
 =============
 
+
+Version 0.2.0 (2025-09-18)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 * First complete cut at the repository material.
 * Continuous integration in place.
 * Docs up and running, and deployed on GitHub Pages.
