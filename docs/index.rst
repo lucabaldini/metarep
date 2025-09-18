@@ -21,9 +21,9 @@ rough template and a starting point for new projects.
 
    layout
    install
-   api
    versioning
    documentation
+   api
    linting
    testing
    actions

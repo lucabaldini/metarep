@@ -61,7 +61,7 @@ additional information
 `here <https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/>`__.
 
 .. seealso::
-   :ref:`versioning`
+   :ref:`versioning`.
 
 
 Documentation
@@ -74,20 +74,44 @@ section, but we anticipate the ``docs`` folder will contain at the very least a
 very possibly, more .rst files.
 
 .. seealso::
-   :ref:`documentation`
+   :ref:`documentation`.
 
 
 Unit tests
 ----------
 
-Not surpsisingly, the ``tests`` folder contains all the unit tests. We shell cover this in
+Not surprisingly, the ``tests`` folder contains all the unit tests. We shell cover this in
 the section about :ref:`testing`, but we anticipate that, ideally, you will have one test
 file for each |Python| module in the package.
 
 .. seealso::
-   :ref:`testing`
-
+   :ref:`testing`.
 
 
 Miscellanea
 -----------
+
+You will notice that, past ``src``, ``docs`` and ``tests``, there's plenty of stuff
+left; let's quickly go through them:
+
+* the ``pyproject.toml`` file is by far the most important---it has to do primarily
+  (but not only) with packaging, and we shall see this is all the excruciating details
+  in the section about :ref:`install`;
+* the ``noxfile.py`` file is used for automating recurrent development tasks while
+  operating on a working copy of the repository, which we shall get back to in the
+  section about :ref:`tasks`;
+* the ``README.md`` file is what appears in the default landing page on github, and
+  it is in many senses the face of your project---the very first thing that people
+  will see;
+* the ``LICENSE`` file should be self-explanatory, but you should not underestimate
+  its importance---more on this in :ref:`license` section;
+* finally the ``.github/workflows`` folder contains the GitHub Actions workflows for
+  automating tasks such as testing and deployment---see :ref:`actions`.
+
+It goes without saying, there's plenty of additional files and folders that you
+might see in real-life project (e.g., ``CODE_OF_CONDUCT.md``, ``CONTRIBUTING.md``,
+``CITATION.cff``) but let's start from the simplest possible thing and move from
+there.
+
+  .. seealso::
+   :ref:`install`, :ref:`tasks`, :ref:`license`, :ref:`actions`.

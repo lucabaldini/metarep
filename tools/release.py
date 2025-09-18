@@ -127,5 +127,5 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Release a new version of the package.")
     parser.add_argument("mode", choices=[mode.value for mode in BumpMode],
                         help="The version bump mode.")
-    args = parser.parse_args()
-    release(BumpMode(args.mode))
+    arguments = parser.parse_args()
+    release(BumpMode(arguments.mode))

@@ -23,6 +23,7 @@ version = __version__
 rst_prolog = f"""
 .. |Python| replace:: `Python <https://www.python.org/>`__
 .. |Sphinx| replace:: `Sphinx <https://www.sphinx-doc.org/en/master/>`__
+.. |numpy| replace:: `NumPy <https://numpy.org/>`__
 """
 
 # -- General configuration ---------------------------------------------------

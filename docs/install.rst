@@ -5,7 +5,6 @@ Installation and usage
 
 Packaging and distribution are key aspects of any Python project, and two that
 underwent a significant evolution over the last few years.
-
 The bottomline is: you should ship a ``pyproject.toml`` file with your project.
 For reference, the one we are distributing with this repository looks like
 
@@ -33,7 +32,9 @@ and it is the ``pyproject.toml`` file that makes that possible.
 
 .. note::
 
-    Explain pip.
+    If you have never heard about pip, the  `pip repo <https://github.com/pypa/pip>`_
+    is a good starting point, and also a good example of a non-trivial Python package
+    that you can take as an inspiration for your own endeavors.
 
 
 Editable installation
