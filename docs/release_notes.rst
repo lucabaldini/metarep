@@ -3,6 +3,12 @@
 Release notes
 =============
 
+* Short description of GitHub actions added.
+
+* Pull requests merged:
+
+  - https://github.com/lucabaldini/metarep/pull/3
+
 
 Version 0.2.0 (2025-09-18)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

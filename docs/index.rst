@@ -26,8 +26,8 @@ rough template and a starting point for new projects.
    api
    linting
    testing
-   actions
    tasks
+   actions
    license
    badges
    release_notes
