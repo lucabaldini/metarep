@@ -3,6 +3,10 @@
 Release notes
 =============
 
+
+Version 0.2.1 (2025-09-19)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 * Short description of GitHub actions added.
 
 * Pull requests merged:
