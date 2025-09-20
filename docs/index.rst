@@ -30,4 +30,5 @@ rough template and a starting point for new projects.
    actions
    license
    badges
+   releasing
    release_notes
