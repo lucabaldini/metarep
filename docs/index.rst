@@ -19,6 +19,7 @@ rough template and a starting point for new projects.
    :maxdepth: 1
    :caption: Contents:
 
+   setup
    layout
    install
    versioning
