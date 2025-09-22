@@ -6,13 +6,16 @@ Release notes
 
 * New section about creating (and interacting with) a repository, including a cursory
   description of ssh keys.
+* Guidelines for contributing added.
 
 * Pull requests merged:
 
   - https://github.com/lucabaldini/metarep/pull/6
+  - https://github.com/lucabaldini/metarep/pull/7
 
 * Issues closed:
 
+  - https://github.com/lucabaldini/metarep/issues/4
   - https://github.com/lucabaldini/metarep/issues/5
 
 

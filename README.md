@@ -6,4 +6,6 @@
 [![Docs](https://img.shields.io/badge/docs-latest-blue.svg)](https://lucabaldini.github.io/metarep/)
 
 A repository about making repositories. Fun, isn't it?
-[Read more...](https://lucabaldini.github.io/metarep/)
+[Read more](https://lucabaldini.github.io/metarep/), or
+[contribute](https://github.com/lucabaldini/metarep/blob/main/CONTRIBUTING.md)...
+
