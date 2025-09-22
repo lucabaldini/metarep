@@ -1,3 +1,4 @@
+# Contributing
 
 Did you find an error in the repo? Something is not quite clear? Do you
 have specific suggestions about how to improve the material? Well, there's
