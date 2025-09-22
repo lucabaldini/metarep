@@ -11,6 +11,10 @@ Release notes
 
   - https://github.com/lucabaldini/metarep/pull/6
 
+* Issues closed:
+
+  - https://github.com/lucabaldini/metarep/issues/5
+
 
 Version 0.2.1 (2025-09-19)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
