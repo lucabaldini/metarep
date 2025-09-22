@@ -92,33 +92,33 @@ and push the "New SSH" green button.
 Windows
 -------
 
-   1. Open Windows Powershell.
-   2. Generate a new SSH key pair (use your own email!):
+1. Open Windows Powershell.
+2. Generate a new SSH key pair (use your own email!):
 
-      .. code-block:: console
+  .. code-block:: shell
 
-         ssh-keygen -t ed25519 -C "example@email.com"
+     ssh-keygen -t ed25519 -C "example@email.com"
 
-   3. Copy the public SSH key to your clipboard:
+3. Copy the public SSH key to your clipboard:
 
-      .. code-block:: console
+  .. code-block:: shell
 
-         cat ~/.ssh/id_ed25519.pub | clip
+     cat ~/.ssh/id_ed25519.pub | clip
 
-   4. Copy the `public` key to |GitHub|---go to the global "Settings" -> "SSH and GPG keys" -> push the "New SSH" green button
-   5. Paste your public key into the "Key" field and give it a title.
-   6. Test your SSH connection:
+4. Copy the `public` key to |GitHub|---go to the global "Settings" -> "SSH and GPG keys" -> push the "New SSH" green button
+5. Paste your public key into the "Key" field and give it a title.
+6. Test your SSH connection:
 
-      .. code-block:: console
+  .. code-block:: shell
 
-         ssh -T git@github.com
-      
-      if this message appears: ``Are you sure you want to continue connecting (yes/no/[fingerprint])?`` type ``yes`` and press Enter.
-      if successful, you should see a message like:
-          Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+     ssh -T git@github.com
+  
+  if this message appears: ``Are you sure you want to continue connecting (yes/no/[fingerprint])?`` type ``yes`` and press Enter.
+  if successful, you should see a message like:
+      Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 
 You should now (hopefully) be able to clone your repo using the ssh link.
----
+
 
 .. todo::
 
