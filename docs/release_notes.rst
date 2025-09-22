@@ -4,6 +4,10 @@ Release notes
 =============
 
 
+Version 0.3.0 (2025-09-22)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 * New section about creating (and interacting with) a repository, including a cursory
   description of ssh keys.
 * Guidelines for contributing added.
