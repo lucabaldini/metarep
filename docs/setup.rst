@@ -113,8 +113,8 @@ Windows
 
  ssh -T git@github.com
 
-if this message appears: ``Are you sure you want to continue connecting (yes/no/[fingerprint])?`` type ``yes`` and press Enter.
-if successful, you should see a message like:
+If this message appears: ``Are you sure you want to continue connecting (yes/no/[fingerprint])?`` type ``yes`` and press Enter.
+If successful, you should see a message like:
   Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 
 You should now (hopefully) be able to clone your repo using the ssh link.
