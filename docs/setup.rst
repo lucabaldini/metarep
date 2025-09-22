@@ -89,18 +89,19 @@ of ssh keys
 and copy the `public` key to |GitHub|---go to the global "Settings" -> "SSH and GPG keys"
 and push the "New SSH" green button.
 
-.. Windows::
+Windows
+-------
 
    1. Open Windows Powershell.
    2. Generate a new SSH key pair (use your own email!):
 
-      .. code-block::
+      .. code-block:: console
 
          ssh-keygen -t ed25519 -C "example@email.com"
 
    3. Copy the public SSH key to your clipboard:
 
-      .. code-block::
+      .. code-block:: console
 
          cat ~/.ssh/id_ed25519.pub | clip
 
@@ -108,7 +109,7 @@ and push the "New SSH" green button.
    5. Paste your public key into the "Key" field and give it a title.
    6. Test your SSH connection:
 
-      .. code-block::
+      .. code-block:: console
 
          ssh -T git@github.com
       
@@ -117,6 +118,7 @@ and push the "New SSH" green button.
           Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 
 You should now (hopefully) be able to clone your repo using the ssh link.
+---
 
 .. todo::
 
