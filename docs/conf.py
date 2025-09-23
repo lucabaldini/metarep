@@ -61,3 +61,5 @@ html_theme_options = {
     'awesome_external_links': True,
 }
 html_static_path = ['_static']
+html_logo = '_static/logo_small.png'
+html_favicon = '_static/favicon.ico'
