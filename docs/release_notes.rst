@@ -3,10 +3,17 @@
 Release notes
 =============
 
+* New logo for the project.
+* Minor fixes.
+
+* Pull requests merged:
+
+  - https://github.com/lucabaldini/metarep/pull/10
+  - https://github.com/lucabaldini/metarep/pull/11
+
 
 Version 0.3.0 (2025-09-22)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 * New section about creating (and interacting with) a repository, including a cursory
   description of ssh keys.
