@@ -14,5 +14,12 @@ jobs:
       pages: write
       id-token: write
     steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.13"
+    - run: python -m pip install --upgrade pip
+    - run: pip install -e ".[docs]"
+
     - id: deployment
       uses: sphinx-notes/pages@v3
