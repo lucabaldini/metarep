@@ -3,8 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-metarep
-=======
+
+metarep documentation
+=====================
+
+
+.. image:: _static/logo.png
+   :alt: Project logo
+   :width: 200px
+   :align: left
+
 
 This is an unusual repo. From the pure code standpoint it provides a single |Python| module
 exposing exactly one function. (The latter calculates the square of a given number or
