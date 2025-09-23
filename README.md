@@ -1,4 +1,5 @@
-# metarep
+
+<img src="docs/_static/logo.png" alt="metarep logo" width="175"/>
 
 ![License](https://img.shields.io/github/license/lucabaldini/metarep.svg)
 [![CI](https://github.com/lucabaldini/metarep/actions/workflows/ci.yml/badge.svg)](https://github.com/lucabaldini/metarep/actions/workflows/ci.yml)
