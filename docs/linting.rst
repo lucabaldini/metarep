@@ -25,7 +25,7 @@ Consider this snippet for a second.
 
   my_value = 0
   if very_unlikely_condition:
-      myvalue = 42
+      myvalue += 42
 
 Can you spot the issue with this code? We have a variable naming inconsistency:
 `my_value` is defined with an underscore, but `myvalue` is used without one within
