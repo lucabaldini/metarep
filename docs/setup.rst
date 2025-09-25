@@ -75,7 +75,7 @@ In order to do that you will have to `exchange a ssh key` with |GitHub|.
 In reality, you don't have to be crypto-ninja to use |GitHub|. All you need to understand
 that:
 
-* you need a private ssh key (which you can create) `and` and ssh agent
+* you need a private ssh key (which you can create) `and` ssh agent
   (which you usually have) on your working computer;
 * GitHub needs to know the corresponding public ssh key.
 
@@ -89,9 +89,40 @@ of ssh keys
 and copy the `public` key to |GitHub|---go to the global "Settings" -> "SSH and GPG keys"
 and push the "New SSH" green button.
 
+Windows
+-------
+
+1. Open Windows Powershell.
+2. Generate a new SSH key pair (use your own email!):
+
+.. code-block:: shell
+
+ ssh-keygen -t ed25519 -C "example@email.com"
+
+3. Copy the public SSH key to your clipboard:
+
+.. code-block:: shell
+
+ cat ~/.ssh/id_ed25519.pub | clip
+
+4. Copy the `public` key to |GitHub|---go to the global "Settings" -> "SSH and GPG keys" -> push the "New SSH" green button
+5. Paste your public key into the "Key" field and give it a title.
+6. Test your SSH connection:
+
+.. code-block:: shell
+
+ ssh -T git@github.com
+
+If this message appears: ``Are you sure you want to continue connecting (yes/no/[fingerprint])?`` type ``yes`` and press Enter.
+If successful, you should see a message like:
+  Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+
+You should now (hopefully) be able to clone your repo using the ssh link.
+
+
 .. todo::
 
-  We should add specific instructions for Windows and Mac OS.
+  We should add specific instructions for Mac OS.
 
 Just for fun, the public ssh key on my personal laptop is
 
