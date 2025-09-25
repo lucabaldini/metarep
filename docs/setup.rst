@@ -128,6 +128,93 @@ type ``yes`` and press Enter. If successful, you should see a message like:
 You should now (hopefully) be able to clone your repo using the ssh link.
 
 
+
+In case this approach doesn't work and you get an error along the lines of
+
+.. code-block::
+
+  Error: Permission denied (publickey)
+
+then the following steps might solve the problem:
+
+* Delete (from your computer and from your GitHub account) the keys you've previously generated 
+  (this is optional, but if you've read up to here it means they're gonna be useless anyways).
+  You should be able to find them in the directory
+
+  .. code-block::  
+
+    C:\Users\yourusername\.ssh
+
+* If you haven't already, download `GitHub CLI <https://cli.github.com/>`_.
+* From Windows Powershell (or Git Bash, if Powershell doesn't recognize gh) type the command
+
+  .. code-block::
+
+    gh auth login
+
+  This will allow you to log into your account and generate an SSH key through the GitHub host,
+  instead of manually generating the SSH key and pasting it into your account settings.
+  You can find all the details `here <https://cli.github.com/manual/gh_auth_login>`_.
+
+* You should now have begun the authentication process. It should look like a series of questions
+  like this:
+
+  .. code-block::
+
+        ? Where do you use GitHub?  [Use arrows to move, type to filter]
+          GitHub.com
+          Other
+  
+  From the possible options, select Github.com, then SSH (this is important!).
+  You will be asked 
+
+  .. code-block::
+  
+    ? Generate a new SSH key to add to your GitHub account? (Y/n)
+
+  Of course, you should type Y. You can now add a password and a title for your SSH key.
+  Then, login however you prefer (web browser is faster).
+
+* Congrats! You are now authenticated and should have gotten a message like this:
+
+  .. code-block::
+
+    ✓ Authentication complete.
+    - gh config set -h github.com git_protocol ssh
+    ✓ Configured git protocol
+    ✓ Uploaded the SSH key to your GitHub account: C:\Users\yourusername\.ssh\id_ed25519.pub
+    ✓ Logged in as yourgithubusername
+
+  And you should find an SSH key uploaded to your account's settings, added by GitHub CLI.
+
+* You can now once again test your connection by typing
+  
+  .. code-block:: shell
+
+   ssh -T git@github.com
+
+  And hopefully get 
+
+  .. code-block::
+
+    Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+
+  As a response.
+  You can check your login status through GitHub CLI with the command 
+
+  .. code-block::
+
+    gh auth status
+  
+  Which should give 
+
+  .. code-block::
+
+    github.com
+    ✓ Logged in to github.com account yourgithubusername (keyring)
+
+  Along with some other information on your account status.
+
 .. todo::
 
   We should add specific instructions for Mac OS.
