@@ -3,7 +3,7 @@
 Repository setup
 ================
 
-Setting up a respository on |GitHub| is easied done than said: assuming that you
+Setting up a respository on |GitHub| is easier done than said: assuming that you
 have an account that you are logged in into, you should see a nice, shining, green
 "New" button somewhere that will bring you to a new page guiding you through the
 creation of a brand new repository.
