@@ -3,9 +3,9 @@
 Versioning
 ==========
 
-Whenever a problem occurs---whether you ara filing a bug  report on a third-party
+Whenever a problem occurs---whether you ara filing a bug report on a third-party
 software or processing a report on your own program---the first thing that you need
-to know is `which version` of the softare we are talking about.
+to know is `which version` of the software we are talking about.
 
 It is a widely used convention for Python modules to export a ``__version__`` attribute
 to specify the version of a given package. You can try it for yourself on any
