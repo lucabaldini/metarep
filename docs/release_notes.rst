@@ -3,6 +3,10 @@
 Release notes
 =============
 
+
+Version 0.3.1 (2025-09-30)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 * New logo for the project.
 * Minor fixes.
 * Slight tweaks to the documentation workflow.
