@@ -5,11 +5,13 @@ Release notes
 
 * New logo for the project.
 * Minor fixes.
+* Slight tweaks to the documentation workflow.
 
 * Pull requests merged:
 
   - https://github.com/lucabaldini/metarep/pull/10
   - https://github.com/lucabaldini/metarep/pull/11
+  - https://github.com/lucabaldini/metarep/pull/13
 
 
 Version 0.3.0 (2025-09-22)

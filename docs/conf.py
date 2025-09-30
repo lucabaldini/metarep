@@ -3,12 +3,7 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-import os
-import sys
 
-sys.path.insert(0, os.path.abspath("../src"))
-
-# Import the version string
 from metarep._version import __version__
 
 # -- Project information -----------------------------------------------------
