@@ -3,6 +3,10 @@
 Release notes
 =============
 
+
+Version 0.3.6 (2025-10-01)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 * Added protection against triggering a release from a branch different from main.
 
 * Pull requests merged:
