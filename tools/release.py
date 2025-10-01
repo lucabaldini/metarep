@@ -110,9 +110,13 @@ def _cmd(*args) -> subprocess.CompletedProcess:
     return result
 
 
-def release(mode: BumpMode) -> None:
+def release(mode: BumpMode, target_branch: str = "main") -> None:
     """Release a new version of the package.
     """
+    # Make sure we are on the proper branch---typically main.
+    current_branch = _cmd("git", "branch", "--show-current").stdout.strip("\n")
+    if current_branch != target_branch:
+        raise RuntimeError(f"You are on the {current_branch} branch, not {target_branch}")
     # Bump the version.
     version = bump_version(read_version_file(), mode)
     # Update the necessary files.
