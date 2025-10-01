@@ -22,9 +22,9 @@ from metarep import __name__ as __package_name__
 
 # Basic environment.
 _ROOT_DIR = pathlib.Path(__file__).parent
+_DOCS_DIR = _ROOT_DIR / "docs"
 _SRC_DIR = _ROOT_DIR / "src" / __package_name__
 _TESTS_DIR = _ROOT_DIR / "tests"
-_DOCS_DIR = _ROOT_DIR / "docs"
 
 # Folders containing source code that potentially needs linting.
 _LINT_DIRS = ("src", "tests", "tools")
