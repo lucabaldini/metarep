@@ -24,7 +24,6 @@ from packaging.version import Version, parse
 
 from metarep import __name__ as __package_name__
 
-
 # Basic environment.
 _ROOT_DIR = pathlib.Path(__file__).parent.parent
 _SRC_DIR = _ROOT_DIR / "src" / __package_name__
