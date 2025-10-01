@@ -4,12 +4,13 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 
-from metarep._version import __version__
+from metarep import __version__, __name__ as __package_name__
+
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'metarep'
+project = __package_name__
 copyright = '2025, Luca Baldini'
 author = 'Luca Baldini'
 version = __version__

@@ -13,29 +13,38 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import pathlib
 import shutil
 
 import nox
 
-from metarep import METAREP_DOCS, METAREP_ROOT, METAREP_SRC, METAREP_TESTS
+from metarep import __name__ as __package_name__
+
+
+# Basic environment.
+_ROOT_DIR = pathlib.Path(__file__).parent
+_SRC_DIR = _ROOT_DIR / "src" / __package_name__
+_TESTS_DIR = _ROOT_DIR / "tests"
+_DOCS_DIR = _ROOT_DIR / "docs"
 
 # Folders containing source code that potentially needs linting.
-SOURCE_DIRS = ("src", "tests", "tools")
+_LINT_DIRS = ("src", "tests", "tools")
 
 # Reuse existing virtualenvs by default.
 nox.options.reuse_existing_virtualenvs = True
+
 
 @nox.session(venv_backend="none")
 def cleanup(session: nox.Session) -> None:
     """Cleanup temporary files.
     """
     # Remove all the __pycache__ folders.
-    for folder_path in (METAREP_ROOT, METAREP_SRC, METAREP_TESTS):
+    for folder_path in (_ROOT_DIR, _SRC_DIR, _TESTS_DIR):
         _path = folder_path / "__pycache__"
         if _path.exists():
             shutil.rmtree(_path)
     # Cleanup the docs.
-    _path = METAREP_DOCS / "_build"
+    _path = _DOCS_DIR / "_build"
     if _path.exists():
             shutil.rmtree(_path)
 
@@ -50,8 +59,8 @@ def docs(session: nox.Session) -> None:
     be created remotely anyway. (This also illustrates the use of the nox.session
     decorator called with arguments.)
     """
-    source_dir = METAREP_DOCS
-    output_dir = METAREP_DOCS / "_build" / "html"
+    source_dir = _DOCS_DIR
+    output_dir = _DOCS_DIR / "_build" / "html"
     session.run("sphinx-build", "-b", "html", source_dir, output_dir, *session.posargs)
 
 
@@ -70,7 +79,7 @@ def pylint(session: nox.Session) -> None:
     """
     session.install("pylint")
     #session.install(".[dev]")
-    session.run("pylint", *SOURCE_DIRS, *session.posargs)
+    session.run("pylint", *_LINT_DIRS, *session.posargs)
 
 
 @nox.session
