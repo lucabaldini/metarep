@@ -3,6 +3,10 @@
 Release notes
 =============
 
+
+Version 0.3.5 (2025-10-01)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 * Cleaned up the sphinx configuration file.
 
 * Pull requests merged:
