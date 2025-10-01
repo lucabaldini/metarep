@@ -3,6 +3,12 @@
 Release notes
 =============
 
+* Added protection against triggering a release from a branch different from main.
+
+* Pull requests merged:
+
+  - https://github.com/lucabaldini/metarep/pull/15
+
 
 Version 0.3.5 (2025-10-01)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -12,14 +18,6 @@ Version 0.3.5 (2025-10-01)
 * Pull requests merged:
 
   - https://github.com/lucabaldini/metarep/pull/15
-
-
-Version 0.3.4 (2025-10-01)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Version 0.3.3 (2025-10-01)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Version 0.3.2 (2025-10-01)
