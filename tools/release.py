@@ -16,15 +16,20 @@
 import argparse
 import ast
 import datetime
+import pathlib
 import subprocess
 from enum import Enum
 
 from packaging.version import Version, parse
 
-from metarep import METAREP_DOCS, METAREP_SRC
+from metarep import __name__ as __package_name__
 
-_VERSION_FILE_PATH = METAREP_SRC / "_version.py"
-_RELEASE_NOTES_PATH = METAREP_DOCS / "release_notes.rst"
+# Basic environment.
+_ROOT_DIR = pathlib.Path(__file__).parent.parent
+_DOCS_DIR = _ROOT_DIR / "docs"
+_SRC_DIR = _ROOT_DIR / "src" / __package_name__
+_VERSION_FILE_PATH = _SRC_DIR / "_version.py"
+_RELEASE_NOTES_PATH = _DOCS_DIR / "release_notes.rst"
 _ENCODING = "utf-8"
 
 
