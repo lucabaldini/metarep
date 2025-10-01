@@ -3,10 +3,15 @@
 Release notes
 =============
 
+* Cleaned up the sphinx configuration file.
+
+* Pull requests merged:
+
+  - https://github.com/lucabaldini/metarep/pull/15
+
 
 Version 0.3.2 (2025-10-01)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 * Cleaned up the repository.
 
