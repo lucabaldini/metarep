@@ -3,17 +3,21 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+import importlib.metadata
 
 from metarep import __version__, __name__ as __package_name__
 
 
+# Get package metadata.
+_meta = importlib.metadata.metadata(__package_name__)
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-
 project = __package_name__
-copyright = '2025, Luca Baldini'
-author = 'Luca Baldini'
+author = _meta['Author-email']
+copyright = f'2025-%Y, {author}'
 version = __version__
+release = version
 
 # This will be included at the beginning of each .rst file.
 rst_prolog = f"""
