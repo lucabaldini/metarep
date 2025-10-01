@@ -4,6 +4,10 @@ Release notes
 =============
 
 
+Version 0.3.2 (2025-10-01)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 * Cleaned up the repository.
 
 * Pull requests merged:
