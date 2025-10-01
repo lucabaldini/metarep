@@ -4,6 +4,17 @@ Release notes
 =============
 
 
+* Cleaned up the repository.
+
+* Pull requests merged:
+
+  - https://github.com/lucabaldini/metarep/pull/14
+
+* Issues closed:
+
+  - https://github.com/lucabaldini/metarep/issues/2
+
+
 Version 0.3.1 (2025-09-30)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
